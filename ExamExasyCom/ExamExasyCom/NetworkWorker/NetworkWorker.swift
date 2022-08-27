@@ -99,9 +99,9 @@ struct NetworkWorker {
             }
         }
     
-    static func GET(urlString: String, token: String?, completion: @escaping (_ response: JSON?, _ error: JSON?) -> Void) {
+    static func GET(urlString: String, token: String?, completion: @escaping (_ data: Data?, _ response: JSON?, _ error: JSON?) -> Void) {
         guard let url = URL(string: urlString) else {
-            completion(nil, "URL Error")
+            completion(nil, nil, "URL Error")
             return
         }
         
@@ -123,15 +123,15 @@ struct NetworkWorker {
                 response.result.ifSuccess {
                     guard let value = response.result.value else {
                         print("Error in response value: \(String(describing: response.result.error))")
-                        completion(nil, JSON(response.data!))
+                        completion(response.data! ,nil, JSON(response.data!))
                         return
                     }
-                    completion(JSON(value), nil)
+                    completion(response.data,JSON(value), nil)
                 }
                 
                 response.result.ifFailure {
                     print("Error in request: \(String(describing: response.result.error))")
-                    completion(nil, JSON(response.data!))
+                    completion(response.data, nil, JSON(response.data!))
                     return
                 }
         }
