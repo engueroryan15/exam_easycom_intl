@@ -6,41 +6,70 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class ExamTableViewController: UITableViewController {
 
+    private var dataList: [DataList]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set title of the viewcontroller's navigation bar
         self.title = "Exam"
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        // Get the DataList from APi and Parse it and Reload the tableview
+        self.getDataList()
     }
 
+    func getDataList(){
+        NetworkWorker.GET(urlString: API.ApiData.endpoint, token: nil) { data, response, error in
+            DispatchQueue.main.async {
+                Parser().parseDataList(data: data) { [weak self] (data) in
+                    self?.dataList = data
+                    DispatchQueue.main.async {
+                        DispatchQueue.main.async {
+                            self?.tableView.reloadData()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.dataList?.count ?? 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+    
+        let cell : ExamTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ExamTableViewCell") as! ExamTableViewCell
+        
         // Configure the cell...
+        cell.setData(data: dataList?[indexPath.row])
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 160.0
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailViewController = storyboard.instantiateViewController(withIdentifier: "ExamDetailViewController") as! ExamDetailViewController
+        detailViewController.setData(data: dataList?[indexPath.row])
+        self.navigationController?.pushViewController(detailViewController, animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.
