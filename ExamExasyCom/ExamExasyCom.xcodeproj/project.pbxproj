@@ -14,6 +14,8 @@
 		1AA283D728BA198C00BB5F7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA283D628BA198C00BB5F7B /* Assets.xcassets */; };
 		1AA283DA28BA198C00BB5F7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AA283D828BA198C00BB5F7B /* LaunchScreen.storyboard */; };
 		1AA283E328BA23DD00BB5F7B /* NetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA283E228BA23DD00BB5F7B /* NetworkWorker.swift */; };
+		1AA283E628BA25B400BB5F7B /* ExamTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA283E528BA25B400BB5F7B /* ExamTableViewController.swift */; };
+		1AA283EA28BA260E00BB5F7B /* ExamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA283E928BA260E00BB5F7B /* ExamTableViewCell.swift */; };
 		C0DA22C7DE8112F8424FBE42 /* Pods_ExamExasyCom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643030A41507D5A8BE47419F /* Pods_ExamExasyCom.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +30,8 @@
 		1AA283D928BA198C00BB5F7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1AA283DB28BA198C00BB5F7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AA283E228BA23DD00BB5F7B /* NetworkWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWorker.swift; sourceTree = "<group>"; };
+		1AA283E528BA25B400BB5F7B /* ExamTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamTableViewController.swift; sourceTree = "<group>"; };
+		1AA283E928BA260E00BB5F7B /* ExamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamTableViewCell.swift; sourceTree = "<group>"; };
 		643030A41507D5A8BE47419F /* Pods_ExamExasyCom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExamExasyCom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAEAD954CD075EF16E2DA9D4 /* Pods-ExamExasyCom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExamExasyCom.release.xcconfig"; path = "Target Support Files/Pods-ExamExasyCom/Pods-ExamExasyCom.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +69,8 @@
 		1AA283CC28BA197D00BB5F7B /* ExamExasyCom */ = {
 			isa = PBXGroup;
 			children = (
+				1AA283E728BA25E500BB5F7B /* Views */,
+				1AA283E428BA258500BB5F7B /* ViewControllers */,
 				1AA283E128BA23BC00BB5F7B /* NetworkWorker */,
 				1AA283CD28BA197D00BB5F7B /* AppDelegate.swift */,
 				1AA283CF28BA197D00BB5F7B /* SceneDelegate.swift */,
@@ -83,6 +89,30 @@
 				1AA283E228BA23DD00BB5F7B /* NetworkWorker.swift */,
 			);
 			path = NetworkWorker;
+			sourceTree = "<group>";
+		};
+		1AA283E428BA258500BB5F7B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1AA283E528BA25B400BB5F7B /* ExamTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1AA283E728BA25E500BB5F7B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1AA283E828BA25EF00BB5F7B /* TableViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1AA283E828BA25EF00BB5F7B /* TableViews */ = {
+			isa = PBXGroup;
+			children = (
+				1AA283E928BA260E00BB5F7B /* ExamTableViewCell.swift */,
+			);
+			path = TableViews;
 			sourceTree = "<group>";
 		};
 		2693729A4E4AF62C4C12CCFC /* Pods */ = {
@@ -217,6 +247,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AA283EA28BA260E00BB5F7B /* ExamTableViewCell.swift in Sources */,
+				1AA283E628BA25B400BB5F7B /* ExamTableViewController.swift in Sources */,
 				1AA283D228BA197D00BB5F7B /* ViewController.swift in Sources */,
 				1AA283CE28BA197D00BB5F7B /* AppDelegate.swift in Sources */,
 				1AA283E328BA23DD00BB5F7B /* NetworkWorker.swift in Sources */,
